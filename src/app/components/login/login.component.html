@@ -1,0 +1,26 @@
+<div *ngIf="loginUser.uid" class="col-md-12 text-right p-2">
+  <button (click)="logout()" type="button" class="btn btn-outline-danger">logout</button>
+</div>
+
+<div class="row">
+
+  <div *ngIf="!loginUser.uid" class="col-md-12 text-center">
+
+    <p>Login to chat with your favorite account</p>
+
+    <button type="button" class="btn btn-outline-primary" (click)="login('google')">
+      Google
+    </button>
+
+    <button type="button" class="ml-1 btn btn-outline-primary" (click)="login('Github')" disabled>
+      Github
+    </button>
+
+  </div>
+
+</div>
+
+<app-chat class="d-flex justify-content-center"
+          *ngIf="loginUser.uid"
+          [loginUser]="loginUser"></app-chat>
+
